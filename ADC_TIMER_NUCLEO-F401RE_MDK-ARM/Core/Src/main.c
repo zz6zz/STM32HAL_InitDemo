@@ -92,16 +92,17 @@ int main(void)
   MX_DMA_Init();
   MX_TIM1_Init();
   MX_ADC1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   uint16_t ADCdata[2] = {0,0};
   HAL_ADC_Start_DMA(&hadc1, (uint32_t*)ADCdata, 2);
   
   /*Timer OutputCompare trigger ADC*/
-  HAL_TIM_Base_Start(&htim1);
-  HAL_TIM_OC_Start(&htim1,TIM_CHANNEL_1);
+  // HAL_TIM_Base_Start(&htim1);
+  // HAL_TIM_OC_Start(&htim1,TIM_CHANNEL_1);
 
   /*Timer Update trigger ADC*/
-	//HAL_TIM_Base_Start(&htim2);
+	HAL_TIM_Base_Start(&htim2);
 
   /* USER CODE END 2 */
 
